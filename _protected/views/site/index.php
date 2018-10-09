@@ -23,7 +23,7 @@ $this->title = "Dashboard";
         'responsiveWrap' => false,        
         'toolbar' => [
             [
-                // 'content' => $this->render('_search', ['model' => $searchModel]),
+                'content' => Html::a('<i class="fa fa-refresh"></i>', [''], ['class' => 'btn btn-xs btn-default', 'id' => 'refreshButton']),
             ],
         ],       
         'pager' => [
@@ -118,10 +118,10 @@ $this->title = "Dashboard";
 </div>
 
 <?php
-// $this->registerCss(<<<CSS
-//     .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
-//     background-color: lightgray;
-//     }
-// CSS
-// ); 
+$script = <<< JS
+$(document).ready(function() {
+    setInterval(function(){ $("#refreshButton").click(); }, 60000);
+});
+JS;
+$this->registerJs($script);
 ?>

@@ -67,7 +67,7 @@
                                 ['label' => 'Reviu TU', 'icon' => 'circle-o', 'url' => ['/spd/reviutu'], 'visible' => in_array(504, $menus) ],
                                 ['label' => 'Persetujuan Ka. Unit', 'icon' => 'circle-o', 'url' => ['/spd/kaunit'], 'visible' => in_array(505, $menus) ],
                                 ['label' => 'Proses SPD', 'icon' => 'circle-o', 'url' => ['/spd/prosesspd'], 'visible' => in_array(506, $menus) ],
-                                ['label' => 'Anggaran UM', 'icon' => 'circle-o', 'url' => ['/spd/anggaranum'], 'visible' => in_array(507, $menus) ],
+                                ['label' => 'Anggaran UM', 'icon' => 'circle-o', 'url' => ['/spd/um'], 'visible' => in_array(507, $menus) ],
                             ]],
                         ],
                     ], 
