@@ -2,6 +2,7 @@
 namespace app\controllers;
 
 use app\models\User;
+use app\models\TaCs;
 use app\models\LoginForm;
 use app\models\AccountActivation;
 use app\models\PasswordResetRequestForm;
@@ -112,7 +113,7 @@ class SiteController extends Controller
         $dataProvider = new SqlDataProvider([
             // 'db' => 'dbcs',
             'sql' => "
-                SELECT a.cs_id, a.cs_no, a.cs_tgl, a.maksud_perjalanan, a.beban_instansi,
+                SELECT a.id, a.cs_id, a.cs_no, a.cs_tgl, a.maksud_perjalanan, a.beban_instansi,
                 b.time as tim, c.time as proglap, d.time as keu, e.time as ppk, f.time as kpa, g.time as spd
                 FROM
                 ta_cs a
@@ -153,6 +154,60 @@ class SiteController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+
+    public function actionDetail($id){
+        $taCs = TaCs::findOne(['id' => $id]);
+        return $this->render('detail', [
+            'model' => $taCs,
+        ]);
+    }
+
+    // Bagian ini untuk menampilkan user profile
+    public function actionProfile()
+    {
+        $id = Yii::$app->user->identity->id;
+        $model = \app\models\User::findOne(['id' => $id]);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('kv-detail-success', 'Perubahan disimpan');
+            return $this->redirect(Yii::$app->request->referrer); 
+        }
+
+        return $this->render('profile', ['model' => $model]);
+    } 
+    
+
+    public function actionUbahpassword()
+    {
+        $id = Yii::$app->user->identity->id;
+        // load user data
+        $model = \app\models\User::findOne($id);
+
+        if ($model->load(Yii::$app->request->post())) {
+            //  $this->password_hash = Yii::$app->security->generatePasswordHash($password);
+            // var_dump($model->password_hash);
+            // var_dump(Yii::$app->security->validatePassword($model->passwordlama, $model->password_hash));
+            // var_dump(Yii::$app->security->generatePasswordHash($model->passwordlama));
+            IF(Yii::$app->security->validatePassword($model->passwordlama, $model->password_hash)){
+                $model->setPassword($model->password);
+                $model->save();
+                Yii::$app->getSession()->setFlash('success',  'Password sudah diganti');
+                return $this->redirect(Yii::$app->request->referrer);                                
+                // IF($model->save()){
+                //     echo 1;
+                // }ELSE{
+                //     echo 0;
+                // }                 
+            }ELSE{
+                Yii::$app->getSession()->setFlash('warning',  'Password lama anda salah');
+                return $this->redirect(Yii::$app->request->referrer);                
+            }
+           
+        } else {
+            return $this->renderAjax('ubahpwd', [
+                'user' => $model,
+            ]);
+        }
+    }              
 
     /**
      * Displays the about static page.

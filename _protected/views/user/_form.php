@@ -3,8 +3,10 @@ use app\rbac\models\AuthItem;
 use kartik\password\PasswordInput;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use kartik\select2\Select2;
+use kartik\widgets\DepDrop;
+use kartik\widgets\Select2;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $user app\models\User */
@@ -40,21 +42,30 @@ use yii\helpers\ArrayHelper;
     <div class="row">
 
         <div class="col-md-4">
-            <?php
-                echo $form->field($user, 'unit_id')->widget(Select2::classname(), [
-                    'data' => $user->unitArray,
-                    'options' => ['placeholder' => $user->scenario === 'create' ? 'Pilih Unit ...' : 'Biarkan kosong jika tetap'],
-                    'pluginOptions' => [
-                        'allowClear' => true
-                    ],
-                ]);
+            <?php echo $form->field($user, 'unit_id')->widget(Select2::class, [
+                'data' => ArrayHelper::map(\app\models\RefUnit::find()->orderBy('id')->asArray()->all(), 'id', 'nama_unit'),
+                'pluginOptions' => ['allowClear' => true],
+            ]); ?>
+        </div>
+        <div class="col-md-4">
+            <?php echo $form->field($user, 'sub_unit_id')->widget(DepDrop::class, [
+                'data'=> ArrayHelper::map(\app\models\RefSubUnit::find()->orderBy('sub_unit_id')->asArray()->all(), 'sub_unit_id', 'nama_sub_unit'),
+                'options' => ['placeholder' => 'Select Sub Unit'],
+                'type' => DepDrop::TYPE_SELECT2,
+                'select2Options'=>['pluginOptions'=>['allowClear'=>true]],
+                'pluginOptions'=>[
+                    'depends'=>['user-unit_id'],
+                    'url' => Url::to(['/subunit']),
+                    'loadingText' => 'Loading Sub Unit ...',
+                ]
+            ]);
             ?>
         </div>
         <div class="col-md-4">
             <?php               
-                echo $form->field($user, 'sub_unit_id')->widget(Select2::classname(), [
-                    'data' => $user->subUnitArray,
-                    'options' => ['placeholder' => 'Sub Unit ...'],
+                echo $form->field($user, 'kd_user')->widget(Select2::classname(), [
+                    'data' => ArrayHelper::map(\app\models\RefUser::find()->all(),'id','name'),
+                    'options' => ['placeholder' => 'Jenis User ...'],
                     'pluginOptions' => [
                         'allowClear' => true
                     ],

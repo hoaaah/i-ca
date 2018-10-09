@@ -19,37 +19,37 @@ use yii\helpers\Url;
     
     <div class="row">
         <div class="col-md-12">
-            <?= $form->field($model, 'maksud_perjalanan')->textInput(['maxlength' => true, 'disabled' => true]) ?>
+            <?= $form->field($taCs, 'maksud_perjalanan')->textInput(['maxlength' => true, 'disabled' => true]) ?>
         </div>
     </div>
     
     <div class="row">
         <div class="col-md-4"> 
-            <?= $form->field($model, 'cs_id')->textInput(['disabled' => true]) ?>
+            <?= $form->field($taCs, 'cs_id')->textInput(['disabled' => true]) ?>
         </div>
         <div class="col-md-4">
-            <?= $form->field($model, 'id_group')->textInput(['disabled' => true]) ?>
+            <?= $form->field($taCs, 'id_group')->textInput(['disabled' => true]) ?>
         </div>
         <div class="col-md-4">
-            <?= $form->field($model, 'beban_instansi')->textInput(['maxlength' => true, 'disabled' => true]) ?>
+            <?= $form->field($taCs, 'beban_instansi')->textInput(['maxlength' => true, 'disabled' => true]) ?>
         </div>
     </div>
 
-    <?php if(!Yii::$app->user->identity->sub_unit_id): ?>
+    <?php if(!Yii::$app->user->identity->unit_id): ?>
 
     <div class="row">
         <div class="col-md-6">
-            <?php echo $form->field($model, 'unit_id')->widget(Select2::class, [
+            <?php echo $form->field($taCs, 'unit_id')->widget(Select2::class, [
                 'data' => ArrayHelper::map(\app\models\RefUnit::find()->orderBy('id')->asArray()->all(), 'id', 'nama_unit'),
-                'pluginOptions' => ['allowClear' => true],
+                'pluginOptions' => ['allowClear' => true, 'disabled' => true],
             ]); ?>
         </div>
         <div class="col-md-6">
-            <?php echo $form->field($model, 'sub_unit_id')->widget(DepDrop::class, [
+            <?php echo $form->field($taCs, 'sub_unit_id')->widget(DepDrop::class, [
                 'data'=> ArrayHelper::map(\app\models\RefSubUnit::find()->orderBy('sub_unit_id')->asArray()->all(), 'sub_unit_id', 'nama_sub_unit'),
                 'options' => ['placeholder' => 'Select Sub Unit'],
                 'type' => DepDrop::TYPE_SELECT2,
-                'select2Options'=>['pluginOptions'=>['allowClear'=>true]],
+                'select2Options'=>['pluginOptions'=>['allowClear'=>true, 'disabled' => true]],
                 'pluginOptions'=>[
                     'depends'=>['tacs-unit_id'],
                     'url' => Url::to(['/subunit']),
@@ -61,6 +61,13 @@ use yii\helpers\Url;
     </div>
 
     <?php endif; ?>
+
+    <div class="row">
+        <div class="col-md-12">
+            <?= $form->field($model, 'time')->textInput(['maxlength' => true, 'readonly' => true]) ?>
+            <?= $form->field($model, 'catatan_reviu')->textInput(['maxlength' => true]) ?>
+        </div>
+    </div>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

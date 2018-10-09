@@ -35,7 +35,7 @@ use yii\helpers\Url;
         </div>
     </div>
 
-    <?php if(!Yii::$app->user->identity->unit_id): ?>
+    <?php if(!Yii::$app->user->identity->sub_unit_id): ?>
 
     <div class="row">
         <div class="col-md-6">

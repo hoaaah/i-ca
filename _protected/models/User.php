@@ -36,6 +36,7 @@ class User extends UserIdentity
      * @var string
      */
     public $password;
+    public $passwordlama;
 
     /**
      * @var \app\rbac\models\Role
