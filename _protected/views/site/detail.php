@@ -56,7 +56,7 @@ $this->title = "Dashboard";
                                 <div class="timeline-panel">
                                     <div class="timeline-heading">
                                         <h4 class="timeline-title">Bidang/Tim</h4>
-                                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <?= $tahapTim['time'] ?? "No Data" ?></small></p>
+                                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <?= date('Y-m-d h:i', strtotime($tahapTim['time'])) ?? "No Data" ?></small></p>
                                     </div>
                                     <div class="timeline-body">
                                         <!-- <p>Mussum ipsum cacilds, vidis litro abertis. Consetis faiz elementum girarzis, nisi eros gostis.</p> -->
@@ -68,7 +68,7 @@ $this->title = "Dashboard";
                                 <div class="timeline-panel">
                                     <div class="timeline-heading">
                                         <h4 class="timeline-title">Program dan Pelaporan</h4>
-                                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <?= $tahapP3a['time'] ?? "No Data" ?></small></p>
+                                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <?= date('Y-m-d h:i', strtotime($tahapP3a['time'])) ?? "No Data" ?></small></p>
                                     </div>
                                     <div class="timeline-body">
                                         <!-- <p>Mussum ipsum cacilds, vidis faiz elementum girarzis, nisi eros gostis.</p> -->
@@ -80,7 +80,7 @@ $this->title = "Dashboard";
                                 <div class="timeline-panel">
                                     <div class="timeline-heading">
                                         <h4 class="timeline-title">Keuangan</h4>
-                                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <?= $tahapKeu['time'] ?? "No Data" ?></small></p>
+                                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <?= date('Y-m-d h:i', strtotime($tahapKeu['time'])) ?? "No Data" ?></small></p>
                                     </div>
                                     <div class="timeline-body">
                                         <!-- <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipisci. Mé faiz elementum girarzis, nisi eros gostis.</p> -->
@@ -92,7 +92,7 @@ $this->title = "Dashboard";
                                 <div class="timeline-panel">
                                     <div class="timeline-heading">
                                         <h4 class="timeline-title">PPK / Ka TU</h4>
-                                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <?= $tahapPpk['time'] ?? "No Data" ?></small></p>
+                                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <?= date('Y-m-d h:i', strtotime($tahapPpk['time'])) ?? "No Data" ?></small></p>
                                     </div>
                                     <div class="timeline-body">
                                         <!-- <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.</p> -->
@@ -104,7 +104,7 @@ $this->title = "Dashboard";
                                 <div class="timeline-panel">
                                     <div class="timeline-heading">
                                         <h4 class="timeline-title">KPA / Ka Unit</h4>
-                                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <?= $tahapKpa['time'] ?? "No Data" ?></small></p>
+                                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <?= date('Y-m-d h:i', strtotime($tahapKpa['time'])) ?? "No Data" ?></small></p>
                                     </div>
                                     <div class="timeline-body">
                                         <!-- <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.</p> -->
@@ -116,7 +116,7 @@ $this->title = "Dashboard";
                                 <div class="timeline-panel">
                                     <div class="timeline-heading">
                                         <h4 class="timeline-title">Persetujuan SPD</h4>
-                                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <?= $tahapSpd['time'] ?? "No Data" ?></small></p>
+                                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <?= date('Y-m-d h:i', strtotime($tahapSpd['time'])) ?? "No Data" ?></small></p>
                                     </div>
                                     <div class="timeline-body">
                                         <!-- <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.</p> -->

@@ -17,7 +17,7 @@
                         [
                             // ['label' => 'Pengaturan Global', 'icon' => 'circle-o', 'url' => ['/management/setting'], 'visible' => in_array(405, $menus)],
                             ['label' => 'User Management', 'icon' => 'circle-o', 'url' => ['/user/index'], 'visible' => in_array(102, $menus)],
-                            ['label' => 'Akses Grup', 'icon' => 'circle-o', 'url' => ['/management/menu'], 'visible' => in_array(401, $menus)],
+                            // ['label' => 'Akses Grup', 'icon' => 'circle-o', 'url' => ['/management/menu'], 'visible' => in_array(401, $menus)],
                             // ['label' => 'Mapping Komponen', 'icon' => 'circle-o', 'url' => ['/globalsetting/mappingkomponen'], 'visible' => in_array(104, $menus)],
                             // ['label' => 'Mapping Pendapatan', 'icon' => 'circle-o', 'url' => ['/globalsetting/mappingpendapatan'], 'visible' => in_array(105, $menus)],
                             // ['label' => 'Mapping Sisa Kas', 'icon' => 'circle-o', 'url' => ['/globalsetting/mappingsisa'], 'visible' => in_array(109, $menus)],
@@ -112,7 +112,7 @@
                     //         ['label' => 'Hapus DB', 'icon' => 'circle-o', 'url' => ['/update/delete'], 'visible' => in_array(801, $menus)],
                     //     ],
                     // ],
-                    ['label' => 'Panduan Penggunaan', 'icon' => 'circle-o', 'url' => ['/images/bosstan_documentation_book.pdf'], 'visible' => !Yii::$app->user->isGuest, 'options' => ['onclick' => "return !window.open('".yii\helpers\Url::to(['/images/bosstan_documentation_book.pdf'], true)."', 'SPJ', 'width=1024,height=768')"]] 
+                    ['label' => 'Panduan Penggunaan', 'icon' => 'circle-o', 'url' => ['/images/documentation_book.pdf'], 'visible' => !Yii::$app->user->isGuest, 'options' => ['onclick' => "return !window.open('".yii\helpers\Url::to(['/images/documentation_book.pdf'], true)."', 'SPJ', 'width=1024,height=768')"]] 
                 ],
             ]
         ) ?>

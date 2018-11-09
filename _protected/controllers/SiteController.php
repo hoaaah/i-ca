@@ -146,7 +146,7 @@ class SiteController extends Controller
             'totalCount' => $totalCount,
             //'sort' =>false, to remove the table header sorting
             'pagination' => [
-                'pageSize' => 50,
+                'pageSize' => 100,
             ],
         ]); 
 

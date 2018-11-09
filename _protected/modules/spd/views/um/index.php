@@ -8,9 +8,9 @@ use yii\bootstrap\Modal;
 /* @var $searchModel app\modules\spd\models\TaCsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Proses SPD';
+$this->title = 'Anggaran UM';
 $this->params['breadcrumbs'][] = 'Penatausahaan';
-$this->params['breadcrumbs'][] = 'Anggaran UM';
+$this->params['breadcrumbs'][] = 'SPD';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 

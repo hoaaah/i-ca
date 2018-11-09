@@ -13,7 +13,7 @@ $this->title = "Dashboard";
     echo GridView::widget([
         'dataProvider' => $dataProvider,
         //'filterModel' => $searchModel,
-        'export' => false, 
+        // 'export' => false, 
         'responsive'=>true,
         'hover'=>true,
         'bordered' => true,
@@ -25,6 +25,7 @@ $this->title = "Dashboard";
             [
                 'content' => Html::a('<i class="fa fa-refresh"></i>', [''], ['class' => 'btn btn-xs btn-default', 'id' => 'refreshButton']),
             ],
+            '{export}'
         ],       
         'pager' => [
             'firstPageLabel' => 'Awal',

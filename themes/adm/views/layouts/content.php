@@ -53,7 +53,7 @@ $version = new \app\models\Version();
         IF(Yii::$app->params['kakaroto'] != $kakaroto){ 
             echo $msg;
         }ELSE{
-            echo '<strong>Copyright &copy; 2016 <a href="https://belajararief.com" target="_BLANK">hoaaah</a></strong>. Ask anything at our <a href="https://bosstan.id/forum" target="_BLANK">Forum</a>';
+            echo '<strong>Dikembangkan oleh BPKP-Aceh &copy; 2018 <a href="https://belajararief.com" target="_BLANK">hoaaah</a></strong>.';
         }  
     ?>
 

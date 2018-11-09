@@ -11,7 +11,7 @@ use yii\helpers\Url;
 /* @var $model app\models\TaCs */
 /* @var $form yii\widgets\ActiveForm */
 ?>
-
+asdasdads
 <div class="ta-cs-form">
     <div id="message"></div>
 
@@ -63,7 +63,7 @@ use yii\helpers\Url;
     <?php endif; ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton('Simpan', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
